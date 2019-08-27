@@ -1,0 +1,10 @@
+sudo: false
+dist: trusty
+language: cpp
+services:
+- docker
+script:
+#- docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+- docker build -t uofscphysics/root build/.
+- docker images -a
+- docker push uofscphysics/root
