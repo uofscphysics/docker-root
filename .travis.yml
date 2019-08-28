@@ -9,3 +9,5 @@ script:
 #- docker build -t uofscphysics/python -f build/python/Dockerfile build/python/.
 - ./build.sh
 - docker images -a
+- docker push uofscphysics/base:latest
+- docker push uofscphysics/python:latest
