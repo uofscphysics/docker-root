@@ -6,5 +6,5 @@ for name in ${DOCKER_FILES}; do
         continue;
     fi
 
-    echo docker build -t uofscphysics/$name -f build/$name/Dockerfile build/$name/.;
+    docker build -t uofscphysics/$name -f build/$name/Dockerfile build/$name/.;
 done;
