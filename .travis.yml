@@ -4,10 +4,6 @@ language: cpp
 services:
 - docker
 script:
-#- docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-#- docker build -t uofscphysics/base -f build/base/Dockerfile build/base.
-#- docker build -t uofscphysics/python -f build/python/Dockerfile build/python/.
+- docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 - ./build.sh
 - docker images -a
-- docker push uofscphysics/base:latest
-- docker push uofscphysics/python:latest
