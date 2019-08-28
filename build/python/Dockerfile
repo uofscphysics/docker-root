@@ -1,6 +1,7 @@
-FROM uofscphysics/base
+FROM uofscphysics/base:latest
 
 LABEL maintainer="tylern@jlab.org"
+USER root
 
 RUN pip --no-cache-dir install -U pip && rm -rf /tmp/*
 RUN pip --no-cache-dir install numpy
@@ -23,7 +24,6 @@ RUN pip --no-cache-dir install \
     metakernel \
     && rm -rf /tmp/*
 
-RUN useradd -m user && chmod a+w /home/user
 USER user
 WORKDIR /home/user
 ADD entry_point.sh /usr/local/bin/entry_point.sh

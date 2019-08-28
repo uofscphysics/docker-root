@@ -19,3 +19,6 @@ RUN apt-get update \
 RUN rm -rf /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python
 RUN rm -rf /usr/bin/ipython && ln -s /usr/bin/ipython3 /usr/bin/ipython
 RUN rm -rf /usr/bin/pip && ln -s /usr/bin/pip3 /usr/bin/pip
+
+RUN useradd -m user && chmod a+w /home/user
+WORKDIR /home/user

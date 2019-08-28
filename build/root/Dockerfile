@@ -1,8 +1,9 @@
-FROM uofscphysics/python
+FROM uofscphysics/python:latest
 
 LABEL maintainer="tylern@jlab.org"
 ARG NCORES=8
 ARG ROOT_VERSION=v6-18-02
+USER root
 
 ENV ROOTSYS /usr/local/root
 ENV PATH $ROOTSYS/bin:$PATH
@@ -23,7 +24,7 @@ RUN git clone https://github.com/root-project/root.git root_source \
   && make -j ${NCORES} && make install \
   && rm -rf /tmp/root_source
 
-
 RUN mkdir -p /home/user/.local/share/jupyter/kernels
 RUN cp -r $ROOTSYS/etc/notebook/kernels/root /home/user/.local/share/jupyter/kernels
+USER user
 ENTRYPOINT ["root"]
