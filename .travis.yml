@@ -4,6 +4,5 @@ language: cpp
 services:
 - docker
 script:
-- docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 - ./build.sh
 - docker images -a

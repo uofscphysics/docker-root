@@ -10,5 +10,5 @@ for name in ${DOCKER_FILES}; do
     fi
     echo -e "Building \e[32m${name} \e[39m"
     docker build -t uofscphysics/$name -f build/$name/Dockerfile build/$name/.;
-    docker push uofscphysics/$name;
+    #docker push uofscphysics/$name;
 done;
