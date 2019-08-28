@@ -1,2 +1,3 @@
-# docker-root
-Scripts to build and CERN ROOT applications in docker
+# dockerfiles
+
+Scripts to build docker images that can be used for different types of reasearch.
