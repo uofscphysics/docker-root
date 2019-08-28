@@ -1,0 +1,31 @@
+
+
+root () {
+	docker run --rm -it --network=host \
+        -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY \
+        -e QT_X11_NO_MITSHM="1" \
+        -v $PWD:/home/user/data \
+        -v $HOME/.Xauthority:/home/user/.Xauthority \
+        -w /home/user/data \
+        --entrypoint "root" -v /tmp/.X11-unix:/tmp/.X11-unix:rw uofscphysics/root $*;
+}
+
+pyroot () {
+	docker run --rm -it --network=host \
+        -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY \
+        -e QT_X11_NO_MITSHM="1" \
+        -v $PWD:/home/user/data \
+        -v $HOME/.Xauthority:/home/user/.Xauthority \
+        -w /home/user/data \
+        --entrypoint "python" -v /tmp/.X11-unix:/tmp/.X11-unix:rw uofscphysics/root $*;
+}
+
+jupyter-root () {
+	docker run --rm -it --network=host \
+        -e USERID=$UID -e USER=$USER -e DISPLAY=$DISPLAY \
+        -e QT_X11_NO_MITSHM="1" \
+        -v $PWD:/home/user/data \
+        -v $HOME/.Xauthority:/home/user/.Xauthority \
+        -w /home/user/data \
+        -v /tmp/.X11-unix:/tmp/.X11-unix:rw uofscphysics/root $*;
+}
