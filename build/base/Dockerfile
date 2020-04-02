@@ -4,7 +4,7 @@ LABEL maintainer="tylern@jlab.org"
 
 RUN apt-get update \
   && apt-get install -y \
-    git dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev \
+    git wget dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev \
     libxft-dev libxext-dev zsh \
     gfortran libssl-dev libpcre3-dev \
     xlibmesa-glu-dev libglew1.5-dev libftgl-dev \

@@ -20,6 +20,13 @@ RUN pip --no-cache-dir install \
     bokeh \
     seaborn \
     ggplot \
+    uproot \
+    awkward \
+    particle \
+    mplhep \
+    coffea \
+    astropy \
+    astroML \
     statsmodels \
     metakernel \
     && rm -rf /tmp/*

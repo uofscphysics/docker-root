@@ -20,11 +20,17 @@ RUN git clone https://github.com/root-project/root.git root_source \
   && mkdir compile && cd compile \
   && cmake -Dgminimal=ON -Dpython=ON -DPYTHON_EXECUTABLE=/usr/bin/python3 \
     -DCMAKE_CXX_STANDARD=17 -Droot7=ON -Droofit=ON \
+    -Dimt=ON -Dminuit2=ON -Droofit=ON -Dvc=ON -Dtbb=ON \
+    -Dsoversion=ON -Druntime_cxxmodules=ON -Drpath=ON \
     -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/root /tmp/root_source \
   && make -j ${NCORES} && make install \
   && rm -rf /tmp/root_source
 
+RUN mkdir -p /root/.local/share/jupyter/kernels
+RUN cp -r $ROOTSYS/etc/notebook/kernels/root /root/.local/share/jupyter/kernels
+
+USER user
 RUN mkdir -p /home/user/.local/share/jupyter/kernels
 RUN cp -r $ROOTSYS/etc/notebook/kernels/root /home/user/.local/share/jupyter/kernels
-USER user
+
 ENTRYPOINT ["root"]
